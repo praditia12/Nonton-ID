@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:nonton_id/screens/register_screen.dart';
+import 'package:nonton_id/screens/login_screen.dart';
 import 'package:nonton_id/widgets/button_widget.dart';
 
 import '../components/text_logo_component.dart';
 import '../style/app_style.dart';
 import '../widgets/text_field_widget.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +30,16 @@ class LoginScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Masuk",
+                      "Daftar",
                       style: AppStyle.appFont.titleMediumStyleWhite,
                     ),
                     AppStyle.appMargin.spaceExtraHeight,
+                    TextFieldWidget(
+                      controller: TextEditingController(),
+                      hintText: 'alamat email',
+                      icon: Icons.mail_outline_rounded,
+                    ),
+                    SizedBox(height: 8),
                     TextFieldWidget(
                       controller: TextEditingController(),
                       hintText: 'username',
@@ -45,11 +51,17 @@ class LoginScreen extends StatelessWidget {
                       hintText: 'password',
                       icon: Icons.lock_outline_rounded,
                     ),
+                    SizedBox(height: 8),
+                    TextFieldWidget(
+                      controller: TextEditingController(),
+                      hintText: 'ulangi password',
+                      icon: Icons.lock_outline_rounded,
+                    ),
                     AppStyle.appMargin.spaceExtraHeight,
                     Row(
                       children: [
                         Text(
-                          'Belum Punya Akun? ',
+                          'Sudah Punya Akun? ',
                           style: TextStyle(color: AppStyle.appColors.tertiary),
                         ),
                         InkWell(
@@ -58,12 +70,12 @@ class LoginScreen extends StatelessWidget {
                               context,
                               MaterialPageRoute<void>(
                                 builder: (BuildContext context) =>
-                                    const RegisterScreen(),
+                                    const LoginScreen(),
                               ),
                             );
                           },
                           child: Text(
-                            'Daftar',
+                            'Masuk',
                             style: TextStyle(
                               fontWeight: FontWeight.w600,
                               color: AppStyle.appColors.white,
@@ -77,7 +89,7 @@ class LoginScreen extends StatelessWidget {
               ),
               Expanded(child: SizedBox()),
               ButtonWidget(
-                text: 'Masuk',
+                text: 'Daftar',
                 onPressed: () {},
               )
             ],
