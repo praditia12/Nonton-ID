@@ -13,9 +13,8 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
         backgroundColor: AppStyle.appColors.backgroundColor,
-        body: Padding(
+        body: SingleChildScrollView(
           padding: AppStyle.appMargin.paddingScreen20,
           child: Column(
             children: [
@@ -50,12 +49,14 @@ class RegisterScreen extends StatelessWidget {
                       controller: TextEditingController(),
                       hintText: 'password',
                       icon: Icons.lock_outline_rounded,
+                      obscureText: true,
                     ),
                     SizedBox(height: 8),
                     TextFieldWidget(
                       controller: TextEditingController(),
                       hintText: 'ulangi password',
                       icon: Icons.lock_outline_rounded,
+                      obscureText: true,
                     ),
                     AppStyle.appMargin.spaceExtraHeight,
                     Row(
@@ -87,12 +88,18 @@ class RegisterScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Expanded(child: SizedBox()),
-              ButtonWidget(
-                text: 'Daftar',
-                onPressed: () {},
-              )
+              SizedBox(height: 80),
             ],
+          ),
+        ),
+        bottomSheet: Container(
+          color: AppStyle.appColors.backgroundColor,
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 20, right: 20, left: 20),
+            child: ButtonWidget(
+              text: 'Daftar',
+              onPressed: () {},
+            ),
           ),
         ),
       ),

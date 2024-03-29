@@ -13,9 +13,9 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        // resizeToAvoidBottomInset: false,
         backgroundColor: AppStyle.appColors.backgroundColor,
-        body: Padding(
+        body: SingleChildScrollView(
           padding: AppStyle.appMargin.paddingScreen20,
           child: Column(
             children: [
@@ -44,6 +44,7 @@ class LoginScreen extends StatelessWidget {
                       controller: TextEditingController(),
                       hintText: 'password',
                       icon: Icons.lock_outline_rounded,
+                      obscureText: true,
                     ),
                     AppStyle.appMargin.spaceExtraHeight,
                     Row(
@@ -75,12 +76,18 @@ class LoginScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Expanded(child: SizedBox()),
-              ButtonWidget(
-                text: 'Masuk',
-                onPressed: () {},
-              )
+              SizedBox(height: 80),
             ],
+          ),
+        ),
+        bottomSheet: Container(
+          color: AppStyle.appColors.backgroundColor,
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 20, right: 20, left: 20),
+            child: ButtonWidget(
+              text: 'Masuk',
+              onPressed: () {},
+            ),
           ),
         ),
       ),

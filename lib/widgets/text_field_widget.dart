@@ -10,6 +10,7 @@ class TextFieldWidget extends StatelessWidget {
   final double? width;
   final double? height;
   final EdgeInsets padding;
+  final bool obscureText;
 
   const TextFieldWidget({
     Key? key,
@@ -19,6 +20,7 @@ class TextFieldWidget extends StatelessWidget {
     this.width,
     this.height,
     this.padding = const EdgeInsets.fromLTRB(16, 12, 16, 12),
+    this.obscureText = false,
   });
 
   @override
@@ -44,6 +46,7 @@ class TextFieldWidget extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: controller,
+              obscureText: obscureText,
               decoration: InputDecoration(
                 hintText: hintText,
                 hintStyle: AppStyle.appFont.hinstStyleTertiary,
