@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nonton_id/screens/register_screen.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nonton_id/router/router.dart';
 import 'package:nonton_id/widgets/button_widget.dart';
 
 import '../components/text_logo_component.dart';
@@ -55,13 +56,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute<void>(
-                                builder: (BuildContext context) =>
-                                    const RegisterScreen(),
-                              ),
-                            );
+                            context.go(RoutePaths.register);
                           },
                           child: Text(
                             'Daftar',
@@ -86,7 +81,9 @@ class LoginScreen extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 20, right: 20, left: 20),
             child: ButtonWidget(
               text: 'Masuk',
-              onPressed: () {},
+              onPressed: () {
+                context.go(RoutePaths.home);
+              },
             ),
           ),
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nonton_id/screens/splash_screen.dart';
+import 'package:nonton_id/router/router.dart';
 
 import 'style/app_style.dart';
 
@@ -16,21 +16,23 @@ class MyApp extends StatelessWidget {
     // Initialize ScreenUtil for responsive design
     ScreenUtil.init(context);
 
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'NONTON·ID',
       theme: ThemeData(
         useMaterial3: true,
+        brightness: Brightness.dark,
         primaryColor: AppStyle.appColors.primary,
-        colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: AppStyle.appColors.primary,
-          secondary: AppStyle.appColors.secondary,
-        ),
-        appBarTheme: AppBarTheme(
-          backgroundColor: AppStyle.appColors.primary,
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: AppStyle.appColors.secondary,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: AppStyle.appColors.yellow,
+          unselectedItemColor: AppStyle.appColors.white,
         ),
       ),
       // debugShowCheckedModeBanner: false,
-      home: SpalshScreen(),
+      routerDelegate: router.routerDelegate,
+      routeInformationParser: router.routeInformationParser,
+      routeInformationProvider: router.routeInformationProvider,
     );
   }
 }

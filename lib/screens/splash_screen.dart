@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nonton_id/components/text_logo_component.dart';
-import 'package:nonton_id/screens/login_screen.dart';
+import 'package:nonton_id/router/router.dart';
 import 'package:nonton_id/style/app_style.dart';
 
 class SpalshScreen extends StatefulWidget {
@@ -14,12 +15,7 @@ class _SpalshScreenState extends State<SpalshScreen> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 3)).then(
-      (value) => Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => LoginScreen(),
-        ),
-      ),
+      (value) => context.go(RoutePaths.login),
     );
     super.initState();
   }
