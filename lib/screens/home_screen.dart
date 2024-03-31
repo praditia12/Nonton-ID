@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nonton_id/pages/account_page.dart';
 import 'package:nonton_id/pages/bioskop_page.dart';
-import 'package:nonton_id/pages/home_pages.dart';
+import 'package:nonton_id/pages/home_page.dart';
 import 'package:nonton_id/pages/ticket_page.dart';
 import 'package:nonton_id/style/app_style.dart';
 
@@ -17,8 +17,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> bodyWidgets = [
     HomePage(),
-    BioskopPage(),
     TicketPage(),
+    BioskopPage(),
     AccountPage()
   ];
 
