@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         brightness: Brightness.dark,
+        scaffoldBackgroundColor: AppStyle.appColors.backgroundColor,
         primaryColor: AppStyle.appColors.primary,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: AppStyle.appColors.secondary,
