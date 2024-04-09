@@ -1,5 +1,5 @@
 class MovieModel {
-  final String? id;
+  final int? id;
   final String? backdropPath;
   final List<String>? genres;
   final String? originalTitle;
@@ -20,7 +20,7 @@ class MovieModel {
     this.contentType,
   });
   MovieModel copyWith({
-    String? id,
+    int? id,
     String? backdropPath,
     List<String>? genres,
     String? originalTitle,
@@ -59,11 +59,15 @@ class MovieModel {
 
   static MovieModel fromJson(Map<String, Object?> json) {
     return MovieModel(
-        id: json['_id'] == null ? null : json['_id'] as String,
+        id: json['_id'] == null ? null : json['_id'] as int,
         backdropPath: json['backdrop_path'] == null
             ? null
             : json['backdrop_path'] as String,
-        genres: json['genres'] == null ? null : json['genres'] as List<String>,
+        genres: json['genres'] == null
+            ? null
+            : (json['genres'] as List<dynamic>)
+                .map((e) => e.toString())
+                .toList(),
         originalTitle: json['original_title'] == null
             ? null
             : json['original_title'] as String,
